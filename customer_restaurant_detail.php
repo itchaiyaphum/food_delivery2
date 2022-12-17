@@ -162,7 +162,7 @@ $reviews = func_reviews($id);
             } else {
                 for ($i = 0; $i < count($food_menus); ++$i) {
                     $row = $food_menus[$i];
-                    $add_to_cart_link = "/customer_restaurant_detail.php?action=add_to_cart&id={$id}&cate_id={$cate_id}&food_id={$item['id']}";
+                    $add_to_cart_link = "/customer_restaurant_detail.php?action=add_to_cart&id={$id}&cate_id={$cate_id}&food_id={$row['id']}";
 
                     $percent = (float) $row['discount_percent'];
                     $old_price = (float) $row['price'];
