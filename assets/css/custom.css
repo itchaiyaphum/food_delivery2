@@ -1,0 +1,48 @@
+/* navigation */
+.nav-link {
+  color: #6c757d;
+  padding: 15px 15px;
+}
+.nav-item.active {
+  border-bottom: 2px solid #0d6efd;
+}
+.nav-item.active > .nav-link {
+  color: black;
+  font-weight: bold;
+}
+.profile-online {
+  top: 85%;
+  left: 85%;
+  background-color: #00c9a7;
+  border: 0.125rem solid #fff;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+
+.page-header {
+    border-bottom: 0.0625rem solid rgba(231,234,243,.7);
+    padding-bottom: 2rem;
+    margin-bottom: 2.25rem;
+}
+.breadcrumb .breadcrumb-link {
+    color: #8c98a4;
+}
+a {
+    text-decoration: none;
+}
+
+.nav-item.show>.nav-link,  .nav-link.active {
+    color: #377dff;
+    border-left: 5px solid #377dff;
+    font-weight: bold;
+}
+
+.list-group-item.active {
+    z-index: 2;
+    color: #0d6efd !important;
+    font-weight: bold;
+    background: none !important;
+    border-color: #e9ecef;
+    border-left: 5px solid #0d6efd !important;
+}
