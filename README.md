@@ -13,15 +13,15 @@ System Requirements
 
 วิธีตั้งค่า VirtualHost สำหรับเข้าใช้งานโดเมน
 
-- WORKSPACE PATH คือ path ที่เราเอาไฟล์เว็บไซด์วางไว้เช่น /Users/wannapong/workspace/food_delivery
+- WORKSPACE PATH คือ path ที่เราเอาไฟล์เว็บไซด์วางไว้เช่น /Users/wannapong/workspace/food_delivery2
 
 ```
 <VirtualHost *:80>
     ServerAdmin itchaiyaphum@gmail.com
     DocumentRoot "WORKSPACE PATH"
-    ServerName dev.food-delivery.itchaiyaphum.com
-    ErrorLog "logs/dev.food-delivery.itchaiyaphum.com.com-error_log"
-    CustomLog "logs/dev.food-delivery.itchaiyaphum.com-access_log" common
+    ServerName dev.food-delivery2.itchaiyaphum.com
+    ErrorLog "logs/dev.food-delivery2.itchaiyaphum.com.com-error_log"
+    CustomLog "logs/dev.food-delivery2.itchaiyaphum.com-access_log" common
     <Directory "WORKSPACE PATH">
         Options FollowSymLinks
         AllowOverride None
@@ -37,14 +37,14 @@ System Requirements
 
 Clone repo จาก github โดยเอาไฟล์ไปไว้ที่ WORKSPACE PATH
 
-- https://github.com/itchaiyaphum/food_delivery
+- https://github.com/itchaiyaphum/food_delivery2
 
 1.วิธีการตั้งค่าให้้รันได้บนเครื่อง localhost
 1.1.ตั้งค่าไฟล์ hosts
 
 - สำหรับ Windows (C:\Windows\System32\drivers\etc\hosts)
 - สำหรับ Mac (/etc/hosts)
-- ให้เพิ่มบันทัดนี้ "127.0.0.1 dev.food-delivery.itchaiyaphum.com"
+- ให้เพิ่มบันทัดนี้ "127.0.0.1 dev.food-delivery2.itchaiyaphum.com"
 
   1.2.สร้างฐานข้อมูลใน localhost
 
@@ -56,7 +56,7 @@ Clone repo จาก github โดยเอาไฟล์ไปไว้ที�
 
   1.4.รันทดสอบระบบ
 
-- เปิด Web Browser และรัน url (http://dev.food-delivery.itchaiyaphum.com)
+- เปิด Web Browser และรัน url (http://dev.food-delivery2.itchaiyaphum.com)
 - login โดยใช้ demo user / password ดังนี้
 - admin@demo.com / mini123456
 - restaurant@demo.com / mini123456
@@ -68,4 +68,4 @@ Clone repo จาก github โดยเอาไฟล์ไปไว้ที�
 - เข้าไปที่ url: http://deploy.itchaiyaphum.com
 - username, password สอบถามได้ที่อาจารย์อลงกรณ์
 - กด build ที่ Job: "food-delivery.itchaiyaphum.com - deploy"
-- เข้า Browser ไปที่ url (http://food-delivery.itchaiyaphum.com)
+- เข้า Browser ไปที่ url (http://food-delivery2.itchaiyaphum.com)
