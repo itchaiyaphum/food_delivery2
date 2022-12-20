@@ -12,7 +12,6 @@ ini_set('display_errors', 1);
 // =========================== COMMON =====================================
 function base_url($url = '')
 {
-    
     $base_url = 'http://dev.food-delivery2.itchaiyaphum.com';
     if ($url == '/') {
         $url = '';
@@ -83,8 +82,6 @@ function html_escape($var, $double_encode = true)
 
 function set_value($field, $default = '', $html_escape = true)
 {
-    
-
     $value = input_post($field, false);
 
     isset($value) or $value = $default;

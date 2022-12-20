@@ -4,7 +4,6 @@ require_once 'functions.php';
 
 function func_order_items()
 {
-    
     $profile = profile_get();
     $profile_id = $profile['id'];
 
@@ -14,12 +13,11 @@ function func_order_items()
                 , u.lastname as `customer_lastname` 
                 , u.thumbnail as `customer_thumbnail` 
                 FROM `order` as o
-                LEFT JOIN `user` as u ON(o.restaurant_id=u.id) WHERE {$where} ORDER BY o.created_at DESC";
+                LEFT JOIN `user` as u ON(o.customer_id=u.id) WHERE {$where} ORDER BY o.created_at DESC";
     $items = db_get($sql);
 
     return $items;
 }
-
 
 ?>
 
@@ -68,10 +66,10 @@ $order_items = func_order_items();
                     </tr>
                 <?php
                 $summary_price = 0;
-                for($i=0; $i<count($order_items); $i++){
-                    $row = $order_items[$i];
-                    $summary_price += (int) $row['total_price'];
-                ?>
+    for ($i = 0; $i < count($order_items); ++$i) {
+        $row = $order_items[$i];
+        $summary_price += (int) $row['total_price'];
+        ?>
                 <tr>
                     <td>#<?php echo $row['id']; ?></td>
                     <td><?php echo $row['created_at']; ?></td>
@@ -79,8 +77,8 @@ $order_items = func_order_items();
                     <td><?php echo $row['customer_firstname'].' '.$row['customer_lastname']; ?></td>
                 </tr>
                 <?php
-                }
-                ?>
+    }
+    ?>
                 </table>
                 <h4 class="text-center">ราคารวมทั้งหมด : <?php echo $summary_price; ?>บาท</h4>
             </div>

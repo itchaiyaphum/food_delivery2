@@ -4,7 +4,6 @@ require_once 'functions.php';
 
 function func_order_items()
 {
-    
     $profile = profile_get();
     $profile_id = $profile['id'];
 
@@ -14,7 +13,7 @@ function func_order_items()
                 , u.lastname as `customer_lastname` 
                 , u.thumbnail as `customer_thumbnail` 
                 FROM `order` as o
-                LEFT JOIN `user` as u ON(o.restaurant_id=u.id) WHERE {$where} ORDER BY o.created_at DESC";
+                LEFT JOIN `user` as u ON(o.customer_id=u.id) WHERE {$where} ORDER BY o.created_at DESC";
     $items = db_get($sql);
 
     return $items;
@@ -22,7 +21,6 @@ function func_order_items()
 
 function func_food_items()
 {
-    
     $profile = profile_get();
     $profile_id = $profile['id'];
 
@@ -41,7 +39,6 @@ function func_food_items()
 
 function func_accept_order($id = 0)
 {
-    
     $data = [
         'status' => 1,
     ];
@@ -52,7 +49,6 @@ function func_accept_order($id = 0)
 
 function func_cancel_order($id = 0)
 {
-    
     // delete order
     db_delete('order', "id={$id}");
     // delete order item
@@ -76,7 +72,6 @@ if ($action == 'accept') {
 
 function controller_accept()
 {
-    
     $id = input_get('id', 0);
     func_accept_order($id);
     redirect('/restaurant_ordering.php');
@@ -84,7 +79,6 @@ function controller_accept()
 
 function controller_cancel()
 {
-    
     $id = input_get('id', 0);
     func_cancel_order($id);
     redirect('/restaurant_ordering.php');
