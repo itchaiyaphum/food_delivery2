@@ -3,13 +3,12 @@
 require_once 'functions.php';
 function func_order_items($id = 0)
 {
-    
     $where = "o.id={$id} AND o.status=3";
     $sql = "SELECT o.*
                 , u.restaurant_name as `restaurant_name` 
                 , u.thumbnail as `restaurant_thumbnail` 
                 FROM `order` as o
-                LEFT JOIN `user` as u ON(o.customer_id=u.id) WHERE {$where} ORDER BY o.created_at DESC";
+                LEFT JOIN `user` as u ON(o.restaurant_id=u.id) WHERE {$where} ORDER BY o.created_at DESC";
     $items = db_get($sql);
 
     return $items;
@@ -17,7 +16,6 @@ function func_order_items($id = 0)
 
 function func_food_items($id = 0)
 {
-    
     $where = "oi.order_id={$id}";
     $sql = "SELECT oi.*
                 , fm.title as `food_name` 
@@ -33,7 +31,6 @@ function func_food_items($id = 0)
 
 function func_review($review_data = [])
 {
-    
     $profile = profile_get();
     $profile_id = $profile['id'];
 
@@ -67,7 +64,7 @@ $action = input_get_post('action', 'index');
 
 // เตรียมค่าที่ส่งเข้าไปที่ view
 // get data form form
-$order_id = input_get_post('id',0);
+$order_id = input_get_post('id', 0);
 $review_data = input_post();
 
 // set rules for validation data
