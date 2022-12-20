@@ -11,7 +11,9 @@ $action = input_get_post('action', 'index');
 
 // เตรียมค่าที่ส่งเข้าไปที่ view
 $active_menu = 'order_delivery';
-$customer_detail = profile_get();
+
+$id = input_get_post('id', 0);
+$customer_detail = profile_by_id($id);
 
 ?>
 
